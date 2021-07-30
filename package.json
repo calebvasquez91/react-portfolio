@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:bottega-code-school/js-builder.git"
+    "url": "git+ssh://git@github.com/bottega-code-school/js-builder.git"
   },
   "keywords": [
     "es6",
@@ -81,5 +81,6 @@
     "babel-register": "^6.26.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "uglifyjs-webpack-plugin": "^1.2.7"
-  }
+  },
+  "main": "env.js"
 }

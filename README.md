@@ -1,4 +1,4 @@
-# React/Redux/Router Starter Project
+# Caleb Vasquez React Portfolio Application
 
 > Provided for the students of the [Bottega Code School](https://bottega.tech/)
 
