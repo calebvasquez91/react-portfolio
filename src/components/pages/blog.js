@@ -6,7 +6,7 @@ export default function () {
         <div>
             <h2> Blog</h2>
             <div>
-                <link to= "/about-me"> Read more about myself</link>
+            <Link to="/about-me">Read more about myself</Link>
             </div>
         </div>
     );

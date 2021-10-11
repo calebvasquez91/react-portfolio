@@ -60,26 +60,18 @@ getPortfolioItems() {
         }
 
         return (
-            <div>
-                <h2> {this.state.pageTitle}</h2>
-
-                <button onClick={() => this.handleFilter('eCommerce')}>
+           <div className="portfolio-items-wrapper">
+                <button className="btn" onClick={() => this.handleFilter('eCommerce')}>
                 eCommerce
                 </button>
-                <button onClick={() => this.handleFilterScheduling('Scheduling')}>
+                <button className="btn"  onClick={() => this.handleFilterScheduling('Scheduling')}>
                 Scheduling
                 </button>
-                <button onClick={() => this.handleFilterEnterprise('Enterprise')}>
+                <button className="btn"  onClick={() => this.handleFilterEnterprise('Enterprise')}>
                 Enterprise
                 </button>
-
-                <div className="portfolio-items-wrapper">{this.portfolioItems}</div>
-                
-               {this.portfolioItems()}
-
-               <hr />
-
-               <button onCick={this.handlePageTitleUpdate}>Change Title</button>
+              
+                {this.portfolioItems()}
             </div>
         );
     }
