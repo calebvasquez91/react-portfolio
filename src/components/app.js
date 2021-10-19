@@ -18,31 +18,50 @@ export default class App extends Component {
 
       this.state = {
         loggedInStatus: "NOT_LOGGED_IN"
-      }
+      };
+   
+
+      this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+      this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    }
+  
+    handleSuccessfulLogin() {
+      this.setState({
+        loggedInStatus: "LOGGED_IN"
+      });
+    }
+  
+    handleUnsuccessfulLogin() {
+      this.setState({
+        loggedInStatus: "NOT_LOGGED_IN"
+      });
     }
 
-    handleSuccessfulLogin= this.handleSuccessfulLogin.bind(this);
-    handleUnSuccessfulLogin= this.handleUnSuccessfulLogin.bind(this);
- 
-      handleSuccessfulLogin () {
-        this.SetState ({
-          loggedInStatus:  "LOGGED_IN"
-        });
-      }
-
-      handleUnSuccessfulLogin () {
-        this.SetState ({
-          loggedInStatus:  "NOT_LOGGED_IN"
-        });
-      }
-
-      checkLoginStatus() {
-          return axios.get("https://api.devcamp.space/logged_in", { 
-            withCredentials: true })
-            .then(response => {
-              console.log("logged_in return", response);
+    checkLoginStatus() {
+      return axios
+        .get("https://api.devcamp.space/logged_in", {
+          withCredentials: true
+        })    
+        .then(response => {
+          const loggedIn = response.data.logged_in;
+          const loggedInStatus = this.state.loggedInStatus;
+  
+          if (loggedIn && loggedInStatus === "LOGGED_IN") {
+            return loggedIn;
+          } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+            this.setState({
+              loggedInStatus: "LOGGED_IN"
             });
-      }
+          } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+            this.setState({
+              loggedInStatus: "NOT_LOGGED_IN"
+            });
+          }
+        })
+        .catch(error => {
+          console.log("Error", error);
+        });
+    }
 
     componentDidMount () {
       this.checkLoginStatus();
@@ -54,7 +73,7 @@ export default class App extends Component {
       <div className="container">
         <Router>
          <div>
-            <NavigationContainer />
+            <NavigationContainer  loggedInStatus={this.state.loggedInStatus}/>
             <h2>{this.state.loggedInStatus}</h2>
 
             <Switch>
@@ -67,10 +86,10 @@ export default class App extends Component {
               path="/auth" 
               render={props => (
                 <Auth
-                  {...props}
-                  handleSuccessfulLogin={this.handleSuccessfulLogin}
-                  handleUnSuccessfulLogin={this.handleUnSuccessfulLogin}
-                />
+                {...props}
+                handleSuccessfulLogin={this.handleSuccessfulLogin}
+                handleUnsuccessfulLogin={this.handleUnsuccessfulLogin}
+              />
                 )}
               component={Auth} />  
               <Route 
