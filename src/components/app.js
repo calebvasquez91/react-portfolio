@@ -78,9 +78,7 @@ export default class App extends Component {
   //route from PM to HP when signout
   authorizedPages() {
     return [
-      
-      <Route path="/portfolio-manager" component={PortfolioManager} />
-    ];
+    <Route key="portfolio-manager" path="/portfolio-manager" component={PortfolioManager} />];
   }
 
   render() {
@@ -110,13 +108,13 @@ export default class App extends Component {
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} /> 
               <Route path="/blog" component={Blog} />
-              {this.state.loggedInStatus === "LOGGED IN" ? 
+              {this.state.loggedInStatus === "LOGGED_IN" ? 
                 (this.authorizedPages()) : null}
-              
               <Route
                 exact
                 path="/portfolio/:slug"
-                component={PortfolioDetail} />
+                component={PortfolioDetail} 
+                />
 
               <Route component={NoMatch} />
             </Switch>
@@ -124,6 +122,6 @@ export default class App extends Component {
         </Router>
 
       </div>
-    )
+    );
   }
 }
