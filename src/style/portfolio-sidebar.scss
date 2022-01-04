@@ -1,12 +1,36 @@
 .portfolio-sidebar-list-wrapper {
-   .portfolio-item-thumb {
-     padding: 21px;
+  .portfolio-item-thumb {
+    padding: 21px;
+    color: white;
+    
 
      .portfolio-item-thumb-img img {
-         width: 100%;
+         width: 100%;        
      }
-     .title {
-         color: $offwhite;
+
+     .text-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5em;
+        .title {
+            color: $offwhite;
+        }
+        .actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 15px;
+        .action-icon {
+          cursor: pointer;
+          color: $offwhite;
+          font-size: 1.0em;
+          transition: 0.5s ease-in-out;
+
+          &:hover{
+           color: $warning;
+          }
+        }
+        }
      }
-   }
+  }
 }
