@@ -10,19 +10,19 @@ export default class BlogModal extends Component {
         super(props);
     
 
-    this.customStyles = {
-        content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            marginRight: "-50%",
-            transform: "translate (-50%, -50%",
-            width: "800px"
-        },
-        overlay: {
-            backgroundColor: "rgba(1, 1, 1, 0.75)"
-        }
-    };
+        this.customStyles = {
+            content: {
+              top: "50%",
+              left: "50%",
+              right: "auto",
+              marginRight: "-50%",
+              transform: "translate(-50%, -50%",
+              width: "800px"
+            },
+            overlay: {
+              backgroundColor: "rgba(1, 1, 1, 0.75)"
+            }
+          };
 
     this.handleSuccessfullFormSubmission = this.handleSuccessfullFormSubmission.bind(this);
     }

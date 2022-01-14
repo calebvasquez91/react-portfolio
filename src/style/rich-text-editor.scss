@@ -1,0 +1,27 @@
+.DraftEditor-root {
+     border: 1px solid #f1f1f1;
+     padding: 20px;
+     border-radius: 3px;
+ 
+}
+ .rdw-editor-main{
+    border: 1px solid black;
+    padding: 20px;
+    height: 100px;
+    radius: 3px;
+    left: -128;
+
+}
+    @include input-element();
+        input {
+            margin-bottom: 0px
+        }
+
+ .rdw-image-modal{
+     left: -215px;
+ }
+
+.rdw-emoji-wrapper {
+    left: -215px;
+}
+ 
